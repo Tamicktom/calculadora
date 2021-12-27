@@ -15,16 +15,35 @@
     <div id="main">
         <div class="container pt-5">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 text-center">
                     <input type="number" id="result">
                 </div>
-                <div id="numberButton" class="col-md-6">
-                    <button onclick="estagiar(document.querySelector('#result').value); stageSoma=true;">+</button>
-                    <button onclick="estagiar(document.querySelector('#result').value); stageSub=true;">-</button>
-                    <button onclick="estagiar(document.querySelector('#result').value); stageDiv=true;">/</button>
-                    <button onclick="estagiar(document.querySelector('#result').value); stageMult=true;">*</button>
-                    <button onclick="clean()">C</button>
-                    <button onclick="estagiar(document.querySelector('#result').value);">=</button>
+                <div id="numberButton" class="col-md-6 text-center">
+                    <div class="operativeButtons">
+                        <button type="button" class="btn-lg btn-primary"
+                            onclick="estagiar(document.querySelector('#result').value); stageSoma=true;">+</button>
+                        <button type="button" class="btn-lg btn-primary"
+                            onclick="estagiar(document.querySelector('#result').value); stageSub=true;">-</button>
+                        <button type="button" class="btn-lg btn-primary"
+                            onclick="estagiar(document.querySelector('#result').value); stageDiv=true;">/</button>
+                        <button type="button" class="btn-lg btn-primary"
+                            onclick="estagiar(document.querySelector('#result').value); stageMult=true;">*</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="cleanVars(); cleanInput();">C</button>
+                        <button type="button" class="btn-lg btn-primary"
+                            onclick="estagiar(document.querySelector('#result').value);">=</button>
+                    </div>
+                    <div class="numberButtons">
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(1);">1</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(2);">2</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(3);">3</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(4);">4</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(5);">5</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(6);">6</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(7);">7</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(8);">8</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(9);">9</button>
+                        <button type="button" class="btn-lg btn-primary" onclick="addNumber(0);">0</button>
+                    </div>
                 </div>
             </div>
         </div>
