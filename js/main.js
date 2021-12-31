@@ -4,6 +4,7 @@ var tmp1 = null,
     stageSub = false,
     stageDiv = false,
     stageMult = false,
+    stage = false,
     result = 0,
     input = '';
 
@@ -15,12 +16,16 @@ function estagiar(valor1) {
         return 0;
     } else {
         tmp1 = valor1;
+        stage = true;
     }
     document.querySelector("#result").value = "";
 }
 
 function addNumber(number) {
     document.querySelector("#result").value += number;
+    if (stage == true) { //* update preview
+        document.querySelector("#preview").innerHTML = verificarOperacao(tmp1, document.querySelector("#result").value);
+    }
 }
 
 function resultado() {
@@ -52,8 +57,10 @@ function cleanVars() {
     stageSub = false;
     stageMult = false;
     stageDiv = false;
+    stage = false;
     result = 0;
     input = '';
+    document.querySelector("#preview").innerHTML = '';
     console.log("cleaned");
 }
 
