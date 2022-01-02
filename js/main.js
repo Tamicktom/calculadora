@@ -4,9 +4,11 @@ var tmp1 = null,
     stageSub = false,
     stageDiv = false,
     stageMult = false,
+    stagePorcent = false,
     preview = false,
     result = 0,
-    input = '';
+    input = '',
+    userView = document.querySelector("#result");
 
 //* Estagiar a operação
 function estagiar(valor1) {
@@ -18,19 +20,18 @@ function estagiar(valor1) {
         tmp1 = valor1;
         preview = true;
     }
-    document.querySelector("#result").value = "";
+    userView.value = "";
 }
 
 function addNumber(number) {
-    document.querySelector("#result").value += number;
+    userView.value += number;
     if (preview == true) { //* update preview
-        document.querySelector("#preview").innerHTML = verificarOperacao(tmp1, document.querySelector("#result").value);
+        mostrarPreview(verificarOperacao(tmp1, userView.value));
     }
 }
 
 function resultado() {
-    result = verificarOperacao(tmp1, tmp2);
-    mostrarResultado();
+    mostrarResultado(result = verificarOperacao(tmp1, tmp2));
     console.log(result);
     cleanVars();
 }
@@ -44,6 +45,8 @@ function verificarOperacao(valor1, valor2) {
         return parseFloat(valor1) / parseFloat(valor2);
     } else if (stageMult == true) {
         return parseFloat(valor1) * parseFloat(valor2);
+    } else if (stagePorcent == true) {
+        return (parseFloat(valor1) / 100) * parseFloat(valor2);
     } else {
         alert("Erro");
     }
@@ -57,17 +60,30 @@ function cleanVars() {
     stageSub = false;
     stageMult = false;
     stageDiv = false;
+    stagePorcent = false;
     preview = false;
     result = 0;
     input = '';
-    document.querySelector("#preview").innerHTML = '';
+    mostrarPreview('');
     console.log("cleaned");
 }
 
 function cleanInput() {
-    document.querySelector("#result").value = '';
+    userView.value = '';
 }
 
-function mostrarResultado() {
-    document.querySelector("#result").value = result;
+function mostrarResultado(resultado) {
+    userView.value = resultado;
+}
+
+function mostrarPreview(preview) {
+    document.querySelector("#preview").innerHTML = preview;
+}
+
+function inverterValor() {
+    if (userView.value > 0) {
+        userView.value = userView.value * (-1);
+    } else {
+        userView.value = userView.value * (1);
+    }
 }

@@ -1,6 +1,31 @@
-body {
-    background: rgb(50, 50, 50);
+:root {
+  --first-color: #F2CED1;
+  --second-color: #f27999;
+  --third-color: #3F4EA6;
+  --fourth-color: #88C1F2;
+  --fifth-color: #F2D230;
 }
+
+body {
+  background: var(--third-color);
+}
+
 span {
-    color: white;
+  color: white;
+}
+
+.largura-100 {
+  width: 100%;
+}
+
+.largura-75 {
+  width: 75%;
+}
+
+.largura-50 {
+  width: 50%;
+}
+
+.largura-25 {
+  width: 25%;
 }

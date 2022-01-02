@@ -1,12 +1,30 @@
-#main {
-    background-color: rgb(39, 38, 38);
+
+.btn-primary {
+    color:var(--third-color);
+    background: var(--first-color);
+    border: 1px solid var(--second-color);
+    border-radius: 0;
+    margin: none;
+    padding: none;
+    transition: all 0.4s;
 }
 
-#result {
-    width: 80%;
+.btn-primary:hover {
+    background: var(--second-color);
+    border: 1px solid var(--second-color);
+    margin: none;
+    padding: none;
 }
 
-.botoes {
-    background: cyan;
-    width: 80%;
+.btn-primary:active {
+    background: var(--second-color);
+    border: 1px solid var(--second-color);
+    margin: none;
+    padding: none;
+}
+.btn-primary:focus{
+    background: var(--second-color);
+    border: 1px solid var(--second-color);
+    margin: none;
+    padding: none;
 }
