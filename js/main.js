@@ -5,6 +5,7 @@ var tmp1 = null,
     stageDiv = false,
     stageMult = false,
     stagePorcent = false,
+    stageDot = false,
     preview = false,
     result = 0,
     input = '',
@@ -23,8 +24,13 @@ function estagiar(valor1) {
     userView.value = "";
 }
 
+//* Adicionar numeros
 function addNumber(number) {
     userView.value += number;
+    if (stageDot == true) {
+        userView.value = (userView.value.toString()).slice(0, -2) + number;
+        stageDot = false;
+    }
     if (preview == true) { //* update preview
         mostrarPreview(verificarOperacao(tmp1, userView.value));
     }
@@ -61,6 +67,7 @@ function cleanVars() {
     stageMult = false;
     stageDiv = false;
     stagePorcent = false;
+    stageDot = false;
     preview = false;
     result = 0;
     input = '';
@@ -86,4 +93,13 @@ function inverterValor() {
     } else {
         userView.value = userView.value * (1);
     }
+}
+
+function addDot() {
+    userView.value = userView.value + '.' + 0;
+    stageDot = true;
+}
+
+function erase() {
+    userView.value = (userView.value.toString()).slice(0, -1);
 }
