@@ -1,11 +1,8 @@
 var tmp1 = null,
     tmp2 = null,
-    stageSoma = false,
-    stageSub = false,
-    stageDiv = false,
-    stageMult = false,
-    stagePorcent = false,
+    equationType = null,
     stageDot = false,
+    hasDot = false,
     preview = false,
     result = 0,
     input = '',
@@ -43,18 +40,25 @@ function resultado() {
 }
 
 function verificarOperacao(valor1, valor2) {
-    if (stageSoma == true) {
-        return parseFloat(valor1) + parseFloat(valor2);
-    } else if (stageSub == true) {
-        return parseFloat(valor1) - parseFloat(valor2);
-    } else if (stageDiv == true) {
-        return parseFloat(valor1) / parseFloat(valor2);
-    } else if (stageMult == true) {
-        return parseFloat(valor1) * parseFloat(valor2);
-    } else if (stagePorcent == true) {
-        return (parseFloat(valor1) / 100) * parseFloat(valor2);
-    } else {
-        alert("Erro");
+
+    switch (equationType) {
+        case 'soma':
+            return parseFloat(valor1) + parseFloat(valor2);
+            break;
+        case 'subtracao':
+            return parseFloat(valor1) - parseFloat(valor2);
+            break;
+        case 'divisao':
+            return parseFloat(valor1) / parseFloat(valor2);
+            break;
+        case 'multiplicacao':
+            return parseFloat(valor1) * parseFloat(valor2);
+            break;
+        case 'porcentagem':
+            return (parseFloat(valor1) / 100) * parseFloat(valor2);
+            break;
+        default:
+            console.log('Erro');
     }
 }
 
@@ -62,11 +66,8 @@ function verificarOperacao(valor1, valor2) {
 function cleanVars() {
     tmp1 = null;
     tmp2 = null;
-    stageSoma = false;
-    stageSub = false;
-    stageMult = false;
-    stageDiv = false;
-    stagePorcent = false;
+    equationType = null;
+    hasDot = false;
     stageDot = false;
     preview = false;
     result = 0;
@@ -88,18 +89,28 @@ function mostrarPreview(preview) {
 }
 
 function inverterValor() {
-    if (userView.value > 0) {
-        userView.value = userView.value * (-1);
+    if (userView.value == 0) {
+        return 0;
     } else {
-        userView.value = userView.value * (1);
+        userView.value = (parseFloat(userView.value) * (-1));
+        console.log("valor: " + userView.value);
     }
 }
 
 function addDot() {
-    userView.value = userView.value + '.' + 0;
-    stageDot = true;
+    if (hasDot != true) {
+        userView.value = userView.value + '.' + 0;
+        stageDot = true;
+        hasDot = true;
+    }
 }
 
 function erase() {
-    userView.value = (userView.value.toString()).slice(0, -1);
+    var temp = userView.value.toString();
+    temp = temp.slice(0, -1);
+    if ('.' == temp[temp.length - 1]) {
+        temp = temp.slice(0, -1);
+        hasDot = false;
+    }
+    userView.value = parseFloat(temp);
 }
