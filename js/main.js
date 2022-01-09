@@ -1,4 +1,4 @@
-var temporary = null,
+let temporary = null,
     equationType = null,
     stageDot = false,
     hasDot = false,
@@ -104,6 +104,8 @@ function erase() {
         hasDot = false;
     }
     userView.value = parseFloat(temp);
+    if (preview == true)
+        mostrarPreview(verificarOperacao(temporary, userView.value));
 }
 
 function finalizar() {
