@@ -6,7 +6,6 @@ var temporary = null,
     input = '',
     userView = document.querySelector("#result");
 
-//* Estagiar a operação
 function estagiar(valor1) {
     if (temporary == null) {
         temporary = valor1;
@@ -19,7 +18,6 @@ function estagiar(valor1) {
     }
 }
 
-//* Adicionar numeros
 function addNumber(number) {
     userView.value += number;
     if (stageDot == true) {
@@ -32,7 +30,6 @@ function addNumber(number) {
 }
 
 function resultado() {
-    //userView.value = verificarOperacao(temporary, userView.value);
     mostrarResultado(verificarOperacao(temporary, userView.value));
     cleanVars();
 }
@@ -55,13 +52,10 @@ function verificarOperacao(valor1, valor2) {
             return (parseFloat(valor1) / 100) * parseFloat(valor2);
             break;
         default:
-            console.log('Nenhuma operacao selecionada');
-            console.log(valor1, valor2);
             return parseFloat(valor2);
     }
 }
 
-//* Reseta todas as variáveis
 function cleanVars() {
     equationType = null;
     temporary = null;
@@ -70,7 +64,6 @@ function cleanVars() {
     hasDot = false;
     input = '';
     mostrarPreview('');
-    console.log("cleaned");
 }
 
 function cleanInput() {
@@ -90,7 +83,6 @@ function inverterValor() {
         return 0;
     } else {
         userView.value = (parseFloat(userView.value) * (-1));
-        console.log("valor: " + userView.value);
     }
     if (preview == true)
         mostrarPreview(verificarOperacao(temporary, userView.value));
@@ -115,7 +107,6 @@ function erase() {
 }
 
 function finalizar() {
-    console.log('entrou aqui');
     userView.value = parseFloat(document.querySelector("#preview").innerHTML);
     cleanVars();
 }
