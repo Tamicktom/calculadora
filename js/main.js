@@ -1,24 +1,22 @@
-var tmp1 = null,
-    tmp2 = null,
+var temporary = null,
     equationType = null,
     stageDot = false,
     hasDot = false,
     preview = false,
-    result = 0,
     input = '',
     userView = document.querySelector("#result");
 
 //* Estagiar a operação
 function estagiar(valor1) {
-    if (tmp1 != null) {
-        tmp2 = valor1;
-        resultado();
-        return 0;
-    } else {
-        tmp1 = valor1;
+    if (temporary == null) {
+        temporary = valor1;
         preview = true;
+        userView.value = "";
+    } else {
+        mostrarResultado(temporary = verificarOperacao(temporary, valor1));
+        preview = true;
+        userView.value = "";
     }
-    userView.value = "";
 }
 
 //* Adicionar numeros
@@ -29,18 +27,17 @@ function addNumber(number) {
         stageDot = false;
     }
     if (preview == true) { //* update preview
-        mostrarPreview(verificarOperacao(tmp1, userView.value));
+        mostrarPreview(verificarOperacao(temporary, userView.value));
     }
 }
 
 function resultado() {
-    mostrarResultado(result = verificarOperacao(tmp1, tmp2));
-    console.log(result);
+    //userView.value = verificarOperacao(temporary, userView.value);
+    mostrarResultado(verificarOperacao(temporary, userView.value));
     cleanVars();
 }
 
 function verificarOperacao(valor1, valor2) {
-
     switch (equationType) {
         case 'soma':
             return parseFloat(valor1) + parseFloat(valor2);
@@ -58,19 +55,19 @@ function verificarOperacao(valor1, valor2) {
             return (parseFloat(valor1) / 100) * parseFloat(valor2);
             break;
         default:
-            console.log('Erro');
+            console.log('Nenhuma operacao selecionada');
+            console.log(valor1, valor2);
+            return parseFloat(valor2);
     }
 }
 
 //* Reseta todas as variáveis
 function cleanVars() {
-    tmp1 = null;
-    tmp2 = null;
     equationType = null;
-    hasDot = false;
+    temporary = null;
     stageDot = false;
     preview = false;
-    result = 0;
+    hasDot = false;
     input = '';
     mostrarPreview('');
     console.log("cleaned");
@@ -81,7 +78,7 @@ function cleanInput() {
 }
 
 function mostrarResultado(resultado) {
-    userView.value = resultado;
+    userView.value = parseFloat(resultado);
 }
 
 function mostrarPreview(preview) {
@@ -95,6 +92,8 @@ function inverterValor() {
         userView.value = (parseFloat(userView.value) * (-1));
         console.log("valor: " + userView.value);
     }
+    if (preview == true)
+        mostrarPreview(verificarOperacao(temporary, userView.value));
 }
 
 function addDot() {
@@ -113,4 +112,10 @@ function erase() {
         hasDot = false;
     }
     userView.value = parseFloat(temp);
+}
+
+function finalizar() {
+    console.log('entrou aqui');
+    userView.value = parseFloat(document.querySelector("#preview").innerHTML);
+    cleanVars();
 }
