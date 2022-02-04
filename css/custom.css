@@ -1,12 +1,35 @@
+#result {
+    /* background: none; */
+    color: white;
+    border: none;
+    padding: none;
+    margin: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+#preview {
+    font-size: 20px;
+    background: cyan;
+    height: 100%;
+    width: 100%;
+}
+
+.previewResposta {
+    background: red;
+    margin: 5px auto 5px auto;
+}
 
 .btn-primary {
-    color:var(--third-color);
+    color: var(--third-color);
     background: var(--first-color);
     border: 1px solid var(--second-color);
     border-radius: 0;
     margin: none;
     padding: none;
     transition: all 0.4s;
+    outline: none;
+    box-shadow: none;
 }
 
 .btn-primary:hover {
@@ -14,6 +37,9 @@
     border: 1px solid var(--second-color);
     margin: none;
     padding: none;
+    outline: none;
+    box-shadow: none;
+    cursor: default;
 }
 
 .btn-primary:active {
@@ -21,10 +47,31 @@
     border: 1px solid var(--second-color);
     margin: none;
     padding: none;
+    outline: none;
+    box-shadow: none;
 }
-.btn-primary:focus{
+
+.btn-primary:focus {
     background: var(--second-color);
     border: 1px solid var(--second-color);
     margin: none;
     padding: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.upper-left-rounded {
+    border-radius: 25% 0% 0% 0%;
+}
+
+.upper-right-rounded {
+    border-radius: 0% 25% 0% 0%;
+}
+
+.down-right-rounded {
+    border-radius: 0% 0% 25% 0%;
+}
+
+.down-left-rounded {
+    border-radius: 0% 0% 0% 25%;
 }

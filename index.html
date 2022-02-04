@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="libs/bootstrap/bootstrap.min.js" defer></script>
+    <script src="js/main.js" defer></script>
     <title>Calculadora</title>
 </head>
 
@@ -16,19 +18,21 @@
     <div id="main">
         <div class="container pt-5">
             <div class="row">
-                <div class="col-md-6">
-                    <input type="number" id="result" class="largura-100" disabled>
-                    <span id="preview"></span>
+                <div class="col-md-6 text-center largura-100">
+                    
+                    <input type="number" id="result" class="largura-95" disabled>
+                    <div class="altura-25px largura-95 previewResposta"><span id="preview"></span></div>
                 </div>
-                <div id="numberButton" class="col-md-6 text-center row">
+                <div id="numberButton" class="col-md-6 text-center row tmp-background largura-100">
                     <div class="d-flex justify-content-center largura-100">
-                        <button type="button" class="btn-lg btn-primary botoes-25"
+                        <button type="button" class="btn-lg btn-primary botoes-25 upper-left-rounded"
                             onclick="cleanVars(); cleanInput();">C</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
                             onclick="estagiar(userView.value); equationType = 'porcentagem'">%</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
                             onclick="estagiar(userView.value); equationType = 'divisao'">/</button>
-                        <button type="button" class="btn-lg btn-primary botoes-25" onclick="erase()">&#8592</button>
+                        <button type="button" class="btn-lg btn-primary botoes-25 upper-right-rounded"
+                            onclick="erase()">&#8592</button>
                     </div>
                     <div class="d-flex justify-content-center largura-100">
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(7);">7</button>
@@ -52,20 +56,18 @@
                             onclick="estagiar(userView.value); equationType = 'soma'">+</button>
                     </div>
                     <div class="d-flex justify-content-center largura-100">
-                        <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(0);">0</button>
+                        <button type="button" class="btn-lg btn-primary botoes-25 down-left-rounded"
+                            onclick="addNumber(0);">0</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addDot();">.</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
                             onclick="inverterValor()">+/-</button>
-                        <button type="button" class="btn-lg btn-primary botoes-25 equalButton"
+                        <button type="button" class="btn-lg btn-primary botoes-25 equalButton down-right-rounded"
                             onclick="finalizar()">=</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="libs/bootstrap/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
