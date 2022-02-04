@@ -15,22 +15,22 @@
 </head>
 
 <body>
-    <div id="main">
+    <div id="calculatorApp">
         <div class="container pt-5">
             <div class="row">
                 <div class="col-md-6 text-center largura-100">
-                    
-                    <input type="number" id="result" class="largura-95" disabled>
-                    <div class="altura-25px largura-95 previewResposta"><span id="preview"></span></div>
+                    <div class="altura-50px largura-95 displayCalculadora universalCenter"><span class="largura-95" id="result"></span></div>
+                    <!-- <input type="number" id="result" class="largura-95" disabled> -->
+                    <div class="altura-25px largura-95 displayCalculadora universalCenter"><span id="preview"></span></div>
                 </div>
                 <div id="numberButton" class="col-md-6 text-center row tmp-background largura-100">
                     <div class="d-flex justify-content-center largura-100">
                         <button type="button" class="btn-lg btn-primary botoes-25 upper-left-rounded"
                             onclick="cleanVars(); cleanInput();">C</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
-                            onclick="estagiar(userView.value); equationType = 'porcentagem'">%</button>
+                            onclick="estagiar(userView.innerHTML); equationType = 'porcentagem'">%</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
-                            onclick="estagiar(userView.value); equationType = 'divisao'">/</button>
+                            onclick="estagiar(userView.innerHTML); equationType = 'divisao'">/</button>
                         <button type="button" class="btn-lg btn-primary botoes-25 upper-right-rounded"
                             onclick="erase()">&#8592</button>
                     </div>
@@ -39,21 +39,21 @@
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(8);">8</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(9);">9</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
-                            onclick="estagiar(userView.value); equationType = 'multiplicacao'">*</button>
+                            onclick="estagiar(userView.innerHTML); equationType = 'multiplicacao'">*</button>
                     </div>
                     <div class="d-flex justify-content-center largura-100">
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(4);">4</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(5);">5</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(6);">6</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
-                            onclick="estagiar(userView.value); equationType = 'subtracao'">-</button>
+                            onclick="estagiar(userView.innerHTML); equationType = 'subtracao'">-</button>
                     </div>
                     <div class="d-flex justify-content-center largura-100">
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(1);">1</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(2);">2</button>
                         <button type="button" class="btn-lg btn-primary botoes-25" onclick="addNumber(3);">3</button>
                         <button type="button" class="btn-lg btn-primary botoes-25"
-                            onclick="estagiar(userView.value); equationType = 'soma'">+</button>
+                            onclick="estagiar(userView.innerHTML); equationType = 'soma'">+</button>
                     </div>
                     <div class="d-flex justify-content-center largura-100">
                         <button type="button" class="btn-lg btn-primary botoes-25 down-left-rounded"

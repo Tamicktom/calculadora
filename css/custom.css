@@ -1,23 +1,23 @@
+#calculatorApp {
+    background: var(--third-color);
+}
+
 #result {
-    /* background: none; */
-    color: white;
-    border: none;
-    padding: none;
-    margin: none;
-    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
     text-align: center;
 }
 
 #preview {
-    font-size: 20px;
-    background: cyan;
-    height: 100%;
-    width: 100%;
+    font-size: 30px;
+    color: rgb(199, 199, 199);
+    /* background: cyan; */
 }
 
-.previewResposta {
-    background: red;
-    margin: 5px auto 5px auto;
+.displayCalculadora {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px auto 10px auto;
+    overflow: hidden;
 }
 
 .btn-primary {

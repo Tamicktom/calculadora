@@ -10,27 +10,27 @@ function estagiar(valor1) {
     if (temporary == null) {
         temporary = valor1;
         preview = true;
-        userView.value = "";
+        userView.innerHTML = "";
     } else {
         mostrarResultado(temporary = verificarOperacao(temporary, valor1));
         preview = true;
-        userView.value = "";
+        userView.innerHTML = "";
     }
 }
 
 function addNumber(number) {
-    userView.value += number;
+    userView.innerHTML += number;
     if (stageDot == true) {
-        userView.value = (userView.value.toString()).slice(0, -2) + number;
+        userView.innerHTML = (userView.innerHTML.toString()).slice(0, -2) + number;
         stageDot = false;
     }
     if (preview == true) { //* update preview
-        mostrarPreview(verificarOperacao(temporary, userView.value));
+        mostrarPreview(verificarOperacao(temporary, userView.innerHTML));
     }
 }
 
 function resultado() {
-    mostrarResultado(verificarOperacao(temporary, userView.value));
+    mostrarResultado(verificarOperacao(temporary, userView.innerHTML));
     cleanVars();
 }
 
@@ -67,11 +67,11 @@ function cleanVars() {
 }
 
 function cleanInput() {
-    userView.value = '';
+    userView.innerHTML = '';
 }
 
 function mostrarResultado(resultado) {
-    userView.value = parseFloat(resultado);
+    userView.innerHTML = parseFloat(resultado);
 }
 
 function mostrarPreview(preview) {
@@ -79,36 +79,36 @@ function mostrarPreview(preview) {
 }
 
 function inverterValor() {
-    if (userView.value == 0) {
+    if (userView.innerHTML == 0) {
         return 0;
     } else {
-        userView.value = (parseFloat(userView.value) * (-1));
+        userView.innerHTML = (parseFloat(userView.innerHTML) * (-1));
     }
     if (preview == true)
-        mostrarPreview(verificarOperacao(temporary, userView.value));
+        mostrarPreview(verificarOperacao(temporary, userView.innerHTML));
 }
 
 function addDot() {
     if (hasDot != true) {
-        userView.value = userView.value + '.' + 0;
+        userView.innerHTML = userView.innerHTML + '.' + 0;
         stageDot = true;
         hasDot = true;
     }
 }
 
 function erase() {
-    var temp = userView.value.toString();
+    var temp = userView.innerHTML.toString();
     temp = temp.slice(0, -1);
     if ('.' == temp[temp.length - 1]) {
         temp = temp.slice(0, -1);
         hasDot = false;
     }
-    userView.value = parseFloat(temp);
+    userView.innerHTML = parseFloat(temp);
     if (preview == true)
-        mostrarPreview(verificarOperacao(temporary, userView.value));
+        mostrarPreview(verificarOperacao(temporary, userView.innerHTML));
 }
 
 function finalizar() {
-    userView.value = parseFloat(document.querySelector("#preview").innerHTML);
+    userView.innerHTML = parseFloat(document.querySelector("#preview").innerHTML);
     cleanVars();
 }
